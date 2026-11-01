@@ -1,0 +1,13 @@
+{
+  "kind": "keyboard-power-bindings",
+  "version": 1,
+  "devices": [
+    {
+      "binding_id": "default",
+      "vid": "05AC",
+      "pid": "024F",
+      "name": "AULA F98Pro",
+      "usb_path": null
+    }
+  ]
+}

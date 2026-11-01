@@ -1,0 +1,5 @@
+# Optional, reviewed local F98Pro receiver profile. Install explicitly as root.
+# Place before Ubuntu's 73-seat-late.rules so uaccess can grant the active user ACL.
+# Separate rules intentionally match USB-device and interface ancestors separately.
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="05ac", ATTRS{idProduct}=="024f", ATTRS{product}=="2.4G Dongle", ATTRS{bcdDevice}=="0121", ENV{KEYBOARD_POWER_RECEIVER}="aula-f98pro"
+SUBSYSTEM=="hidraw", ENV{KEYBOARD_POWER_RECEIVER}=="aula-f98pro", ATTRS{bInterfaceNumber}=="03", TAG+="uaccess"

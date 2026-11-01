@@ -1,0 +1,7 @@
+{
+  "uuid": "keyboard-power-position@local",
+  "name": "Keyboard Power Position",
+  "description": "Keep only the keyboard power indicator at the left edge of its existing panel group.",
+  "shell-version": ["46"],
+  "version": 1
+}

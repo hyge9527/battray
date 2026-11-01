@@ -1,0 +1,17 @@
+__pycache__/
+.backups/
+*.py[cod]
+
+# Local exports, Python environments and generated machine-specific launcher
+.publish/
+.venv/
+venv/
+/.env
+/.env.*
+!/.env.example
+/local.keyboard-power.desktop
+
+# Local review artifacts and export manifests (not source distributions)
+/docs/review-baseline.json
+/docs/review-changes.patch
+/PUBLISH_MANIFEST.json

@@ -81,7 +81,7 @@ python3 -B my_devices.py --decode-report '完整十六进制报告' --profile /p
 
 ## 5. 将候选接入代码，保持边界可审查
 
-阶段 2 已提供静态注册表和适配器契约。新增已知协议设备按以下顺序接入：
+项目使用静态注册表和适配器契约。新增已知协议设备按以下顺序接入：
 
 1. 在 `adapters/profiles.py` 中增加精确身份档案，复用 `domain.matching.match_profile`；未验证版本不给发送资格。
 2. 新建独立适配器模块，声明 profile、实现 match/read。请求构造和回复解析保持纯函数，读写使用原有事务/取消边界；新协议不要复用无关握手。
@@ -103,7 +103,7 @@ BackendResult.to_legacy() -> 现有 CLI / IPC 字典
 新增状态前同时检查 CLI 退出码、Panel 的 stale 合并、Tray 的 `?` 图标、IPC 和用户文档。
 
 涉及文件不仅是 `aula.py`：还包括 `diagnostics.py`、UI/托盘名称、调试模板/默认选择、CLI 默认参数、权限规则/安装器、验证工具的固定 F98Pro 断言及文档。
-已确认的匹配口径和过期读数问题见 [审查报告](architecture-review.md)，应在启用通用适配前单独解决。
+匹配资格与过期读数由统一模型管理；新增后端必须验证相应负例和结果序列。
 
 ## 6. 验收后才允许自动轮询
 
@@ -119,4 +119,4 @@ BackendResult.to_legacy() -> 现有 CLI / IPC 字典
 
 设备清单应区分：已发现、协议候选、单次实测、指定版本支持、完整场景验收。当前 F98Pro 是“本机指定版本单次对照及部分运行场景实测”，不是所有 F98Pro 固件的认证。
 
-可直接复用 [新增设备提示词](../prompts/device-adaptation.md) 与 [协议验证提示词](../prompts/protocol-validation.md)。
+可选使用 [AI 适配提示词](prompts/adapt-device.md)。
